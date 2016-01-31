@@ -9,7 +9,8 @@ angular.module('starter',
         'app.controllers',
         'app.services',
         'user.controllers',
-        'user.services'
+        'user.services',
+		'ngCordova'
     ]
 )
 /**
@@ -21,8 +22,8 @@ angular.module('starter',
  * parse constants
  */
     .value('ParseConfiguration', {
-        applicationId: "xxxxxxxx",
-        javascriptKey: "yyyyyyyyy"
+        applicationId: "txJtHZs6WrtCEQBcIvy7aOiBqtcXHZtWUVjMYc10",
+        javascriptKey: "c62y90GoOjycHUhCTCZwdlarIm53blg4INUFxrok"
     })
 /**
  *
@@ -102,8 +103,6 @@ angular.module('starter',
 
         $rootScope.$on('$stateChangeError',
             function (event, toState, toParams, fromState, fromParams, error) {
-
-                debugger;
 
                 console.log('$stateChangeError ' + error && (error.debug || error.message || error));
 

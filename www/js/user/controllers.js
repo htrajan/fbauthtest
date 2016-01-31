@@ -8,8 +8,6 @@ angular.module('user.controllers', [])
         '$state', '$scope', 'UserService',   // <-- controller dependencies
         function ($state, $scope, UserService) {
 
-            debugger;
-
             // ng-model holding values from view/html
             $scope.creds = {
                 username: "adminuser",
@@ -34,6 +32,23 @@ angular.module('user.controllers', [])
              */
             $scope.doLoginAction = function () {
                 UserService.login($scope.creds.username, $scope.creds.password)
+                    .then(function (_response) {
+
+                        alert("login success " + _response.attributes.username);
+
+                        // transition to next state
+                        $state.go('tab.list');
+
+                    }, function (_error) {
+                        alert("error logging in " + _error.message);
+                    })
+            };
+			
+			/**
+             *
+             */
+            $scope.doFBLoginAction = function () {
+                UserService.doParseLoginWithFB()
                     .then(function (_response) {
 
                         alert("login success " + _response.attributes.username);

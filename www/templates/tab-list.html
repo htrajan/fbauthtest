@@ -9,15 +9,10 @@
             Logout
         </button>
     </ion-nav-buttons>
-    <ion-content>
-        <ion-list can-swipe="true">
-            <ion-item class="item item-thumbnail-left" ng-repeat="data in dataList" type="item-text-wrap"
-                      href="#/tab/list/{{$index}}">
-                <pre>{{data | json}}</pre>
-                <ion-option-button class="button-assertive" ng-click="doDeleteRow(data.id)">
-                    DELETE
-                </ion-option-button>
-            </ion-item>
-        </ion-list>
-    </ion-content>
+    <div class="box">
+		<img class="centered" ng-if="isChecked" src="img/strawberry.png" style="width:150px;height:150px;">
+	</div>
+	<div class="box">
+		<input class="centered" type="checkbox" ng-model="isChecked" style="width:40px;height:40px;"/>
+	</div>
 </ion-view>
